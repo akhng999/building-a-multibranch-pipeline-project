@@ -7,6 +7,10 @@ pipeline {
     }
     environment {
         CI = 'true'
+        // Override HOME to WORKSPACE
+        HOME = "${WORKSPACE}"
+        // or override default cache directory (~/.npm)
+        NPM_CONFIG_CACHE = "${WORKSPACE}/.npm"
     }
     stages {
         stage('Build') {
